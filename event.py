@@ -1,17 +1,22 @@
 import streamlit as st
 from pathlib import Path
-
+ 
 # cek apakah sudah login
 if "logged_in" not in st.session_state or not st.session_state.logged_in == True:
     st.switch_page("app.py")
-if "logged_in" not in st.session_state or not st.session_state.logged_in == True:
-    st.switch_page("app.py")
+ 
 # BAWAH INI JANGAN DIUBAH YA PENTING INI -3000 KALAU NGUBAH
 st.set_page_config(page_title="JAPFEST 2026")
-
+ 
+# navbar
+col_nav1, col_nav2 = st.columns([5, 1])
+with col_nav2:
+    if st.button("👤 Profile", use_container_width=True):
+        st.switch_page("pages/profile.py")
+ 
 st.title("🎌 JAPFEST 2026")
 st.caption("UKDW Japanese Festival")
-
+ 
 # hero img
 image = Path(__file__).parent.parent / "japfest.png"
 col1, col2, col3 = st.columns([1,3,1])
@@ -23,34 +28,34 @@ st.header("TENTANG JAPFEST", divider="green", text_alignment="center")
 st.markdown("""
 JAPFEST 2026 adalah festival budaya Jepang yang menghadirkan
 hiburan, kompetisi, kreativitas, dan berbagai aktivitas menarik.
-
+ 
 **📅 Minggu, 6 Desember 2026**  
 **📍 Gedung Koinonia, UKDW — Yogyakarta**
 ---
-
+ 
 """)
 st.header("APA AJA DI JAPFEST", divider="green", text_alignment="center")
 st.markdown(
     """
     **🎮 Tekken Tournament**  
 Kompetisi fighting game untuk para pemain dan komunitas.
-
+ 
 **🎤 Live Performance**  
 Berbagai penampilan dengan nuansa Jepang dan pop culture.
-
+ 
 **🍜 Japanese Food & Tenant**  
 Berbagai makanan, produk, dan booth menarik.
-
+ 
 **🎌 Japanese Culture Activities**  
 Aktivitas interaktif untuk mengenal budaya Jepang.
 ---
-
+ 
 """)
 st.header("TIKET", divider="green", text_alignment="center")
 st.markdown(
 '''
     **Presale — Rp15.000**
-
+ 
     <a href="https://yourtix.co.id/event/japfest-ukdw-2026" target="_blank">
         <button style="
             background-color:#FF4B4B;
@@ -68,3 +73,4 @@ st.markdown(
     <br>
     📱 Instagram: @japfestukdw       
 ''', unsafe_allow_html=True)
+ 
